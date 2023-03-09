@@ -1,1 +1,10 @@
-site_name: My Docs
+site_name: Wanderways
+theme:
+  name: material
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+nav:
+  - 'index.md'
+  - 'backend/backend.md'
+  - 'frontend/frontend.md'
+  - 'admin-panel/admin-panel.md'
