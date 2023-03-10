@@ -3,8 +3,25 @@ theme:
   name: material
   logo: assets/logo.svg
   favicon: assets/logo.svg
+  scheme: slate
+  features:
+    - content.code.copy
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
 nav:
-  - 'index.md'
-  - 'backend/backend.md'
+  - Introduction : 'index.md'
+  - Backend : 
+    - 'backend/index.md'
+    - Routes : 'backend/routes.md'
+    - Database : 'backend/database.md'
   - 'frontend/frontend.md'
   - 'admin-panel/admin-panel.md'
+  - About:
+    - about/index.md
+    - Release Notes: about/release_notes.md
