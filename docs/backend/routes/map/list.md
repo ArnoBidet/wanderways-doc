@@ -1,22 +1,11 @@
 # Map's list
 
-Get the list of maps along with their description, thumbnails, tags, wiki link and statistiques such as popularity.
 
-## Api endpoint
+!!swagger list.yaml!!
 
-Method : `GET`
 
-Url : `/api/map/list`
+## Typescript schema
 
-## Input parameters
-
-- Path : *none*
-- Body : *none*
-- Query : *none*
-
-## Output
-
-### Schema
 ```ts
 interface Map {
    id_map : string,

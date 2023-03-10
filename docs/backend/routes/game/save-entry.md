@@ -1,54 +1,25 @@
 # Save entry
 
-Allows to send a result that the client computed as correct.
+<style>.scheme-container{display:none;}</style>
 
-## Api endpoint
+!!swagger save-entry.yaml!!
 
-Method : `POST`
 
-Url : `/api/against-the-clock/save-entry`
+@TODO uml sequence diagramm
 
-## Request headers
 
-|Header name| Value |
-|-|-|
-|cookie|session-id|
+## Typescript schema
 
-## Input parameters
-
-- Path : *none*
-- Body :
-- 
-*Schema*
-```ts
-interface body {
-   response : string, // player's answer e.g : “loire atlantique”
-   supposedCorrespondance : string // the data's id supposedly associated, here 'FR-44'
-}
-```
-*Example*
-```json
-{
-   "response" : "loire atlantique",
-   "supposedCorrespondance" : "FR-44"
-}
-```
-
-- Query : *none*
-
-## Output
-
-### Schema
 ```ts
 interface SaveEntryStatus{
    reponsecode : GameResponse
 }
 
 enum GameResponse {
-    OK,
-    ALREADY_FOUND,
-    WRONG_GUESS,
-    UNKNOWN_ERROR
+    OK=1,
+    ALREADY_FOUND=2,
+    WRONG_GUESS=3,
+    UNKNOWN_ERROR=4
 }
 ```
 

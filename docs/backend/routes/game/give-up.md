@@ -1,27 +1,12 @@
 # Give up
 
-Tells the server that the player gave up.
+<style>.scheme-container{display:none;}</style>
 
-## Api endpoint
+!!swagger give-up.yaml!!
 
-Method : `POST`
 
-Url : `/api/against-the-clock/give-up`
+@TODO uml sequence diagramm
 
-## Request headers
-
-|Header name| Value |
-|-|-|
-|cookie|session-id|
-### Input parameters
-
-- Path : *none*
-- Body : *none*
-- Query : *none*
-
-## Output
-
-`HTTP 200 OK`
 
 ## Associated SQL Request
 

@@ -6,6 +6,10 @@ theme:
   scheme: slate
   features:
     - content.code.copy
+    - navigation.instant
+    - navigation.tabs
+plugins:
+  - render_swagger
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -14,11 +18,29 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 nav:
   - Introduction : 'index.md'
   - Backend : 
     - 'backend/index.md'
-    - Routes : 'backend/routes.md'
+    - Api :
+      - 'backend/routes/index.md'
+      - Map :
+        - Get the list of maps : 'backend/routes/map/list.md'
+      - Game :
+        - Get the list of games @TODO : ''
+        - Save an entry in a game : 'backend/routes/game/save-entry.md'
+        - Giving up in a game : 'backend/routes/game/give-up.md'
+      - Map Data :
+        - Get datas from a map : 'backend/routes/mapdata/data.md'
+      - Tag :
+        - Get the list of tags : 'backend/routes/tag/list.md'
+      - Statistics :
+        - Average awareness : 'backend/statistics/average-awareness.md'
     - Database : 'backend/database.md'
   - 'frontend/frontend.md'
   - 'admin-panel/admin-panel.md'

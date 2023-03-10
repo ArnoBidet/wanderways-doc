@@ -1,0 +1,21 @@
+openapi: 3.0.0
+tags:
+  - name: game
+paths:
+  /api/game/give-up:
+    post:
+      security:
+        - sessionId: []
+      summary: Tells the server that the player gave up.
+      tags:
+        - game
+      responses:
+        '200':
+          description: OK
+# defines cookie
+components:
+  securitySchemes:
+    sessionId:
+      type: string
+      in: cookie
+      name: SESSIONID 

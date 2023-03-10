@@ -2,21 +2,6 @@
 
 ## Api endpoints
 
-<!-- @TODO create better design for this and translate-->
-
-- Map
-    - [Get the list of maps](./routes/map/list.md)
-    - [Get datas from a map](./routes/map/ID-MAP_data.md)
-- Game
-    - [Get the list of games @TODO]()
-- Tag
-    - [Get the list of tags](./routes/tag/list.md)
-- Against the clock
-    - [Save an entry in a game](./routes/against-the-clock/save-entry.md)
-    - [Giving up in a game](./routes/against-the-clock/give-up.md)
-- Statistics
-    - [Average awareness](./routes/statistics/average-awareness.md)
-
 
 <!-- - /game/list (, permet d’obtenir des données comme la popularité ou le taux de réussite par jeux)
 - /against-the-clock
