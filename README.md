@@ -21,3 +21,13 @@ pip install Pygments
 pip install mike
 pip install mkdocs-render-swagger-plugin
 ```
+
+## Uploading
+
+To upload your documentation version, use the command :
+
+`mike deploy --push --update-aliases MAJOR.MINOR latest`
+
+Please, only create a new version on significants changes.
+
+[Source](https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/)
