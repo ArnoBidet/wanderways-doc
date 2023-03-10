@@ -1,22 +1,9 @@
 # Tag's list
 
-Get the tags and tag groups.
+!!swagger list.yaml!!
 
-## Api endpoint
+## Typescript schema
 
-Method : `GET`
-
-Url : `/api/tag/list`
-
-## Input parameters
-
-- Path : *none*
-- Body : *none*
-- Query : *none*
-
-## Output
-
-### Schema
 ```ts
 interface Tag{
     id_tag_group : string,
