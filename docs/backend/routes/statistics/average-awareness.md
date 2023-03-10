@@ -1,31 +1,37 @@
 # Average awareness
 
-By game mode and map, for each element X, on the sum of played game, the number of player that found X element.
 
-## Api endpoint
+!!swagger average-awareness.yaml!!
 
-Method : `GET`
 
-Url : `/api/statistics/average-awareness/:GAME_MODE/:ID_MAP?lang=:ID_LANG`
+## Typescript schema
 
-## Input parameters
-
-- Path :
-  - GAME_MODE : the gamemode's id. E.g :  `GAMEMODE_AGAINST-CLOCK`
-  - ID_MAP : The map's id
-- Body : *none*
-- Query : `ID_LANG` : The language id. If not present, then takes all languages.
-
-## Output
-
-### Schema
 ```ts
-
+interface AverageAwareness {
+  play_count : number,
+  data : {
+    id_data : string,
+    found_count : string
+  }[]
+}
 ```
 
 ### Example
-```json
 
+```json
+{
+  "play_count" : 700,
+  "data":[{
+    "id_data":"FR-01",
+    "found_count":40
+  },{
+    "id_data":"FR-02",
+    "found_count":20
+  },{
+    "id_data":"FR-03",
+    "found_count":150
+  }]
+}
 ```
 
 ## Associated SQL Request

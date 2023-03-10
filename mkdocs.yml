@@ -40,7 +40,7 @@ nav:
       - Tag :
         - Get the list of tags : 'backend/routes/tag/list.md'
       - Statistics :
-        - Average awareness : 'backend/statistics/average-awareness.md'
+        - Average awareness : 'backend/routes/statistics/average-awareness.md'
     - Database : 'backend/database.md'
   - 'frontend/frontend.md'
   - 'admin-panel/admin-panel.md'
