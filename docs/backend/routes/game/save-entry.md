@@ -1,39 +1,3 @@
-# Save entry
-
-<style>.scheme-container{display:none;}</style>
-
-!!swagger save-entry.yaml!!
-
-
-@TODO uml sequence diagramm
-
-
-## Typescript schema
-
-```ts
-interface SaveEntryStatus{
-   reponsecode : GameResponse
-}
-
-enum GameResponse {
-    OK=1,
-    ALREADY_FOUND=2,
-    WRONG_GUESS=3,
-    UNKNOWN_ERROR=4
-}
-```
-
-### Example
-```json
-{
-   "reponsecode" : 1
-}
-```
-
-## Associated SQL Request
-
-*none*
-
 <!-- @TODO create sequence diagram or sth
 Séquence de traitements backend particuliers :
 

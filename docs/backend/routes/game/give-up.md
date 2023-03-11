@@ -1,39 +1,3 @@
-# Give up
-
-<style>.scheme-container{display:none;}</style>
-
-!!swagger give-up.yaml!!
-
-
-@TODO uml sequence diagramm
-
-
-## Associated SQL Request
-
-```sql
-UPDATE success_or_give_up_statistics
-SET play_count = play_count + 1, give_up_count = give_up_count +1
-WHERE id_map = :MAP_ID
-AND id_gamemode = :GAMEMODE_ID
-AND lang_id = :LANG_ID;
-
-UPDATE map_statistics
-SET play_count = play_count + 1
-WHERE id_map = :MAP_ID
-AND lang_id = :LANG_ID;
-
-UPDATE gamemode_statistics
-SET play_count = play_count + 1
-WHERE id_gamemode = :GAMEMODE_ID
-AND lang_id = :LANG_ID;
-
-UPDATE game_statistics
-SET found_count = found_count + 1
-WHERE  id_map = :MAP_ID
-AND id_gamemode = :GAMEMODE_ID
-AND lang_id = :LANG_ID
-AND id_map_data = :ID_MAP_DATA;
-```
 
 <!-- @TODO create sequence diagram or sth
 
