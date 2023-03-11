@@ -14,12 +14,7 @@ To run this project on your machine, follow those steps :
 In a script (minus python install) : 
 ```sh
 python -m ensurepip --upgrade
-pip install mkdocs
-pip install mkdocs-material
-pip install markdown
-pip install Pygments
-pip install mike
-pip install mkdocs-render-swagger-plugin
+pip install mkdocs mkdocs-material markdown Pygments mike mkdocs-render-swagger-plugin
 ```
 
 ## Uploading
