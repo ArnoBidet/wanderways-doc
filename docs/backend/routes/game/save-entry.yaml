@@ -10,7 +10,7 @@ paths:
             tags:
                 - game
             requestBody:
-                description: The identifier of the map.
+                description: A json object representing the player's answer.
                 name: Player's answer
                 required: true
                 content:
