@@ -9,7 +9,15 @@
 ```mermaid
 sequenceDiagram
     Client->>Backend: /api/game/start
-    Backend-->>Client: cookie : SESSIONID=35343514...
+    Backend-->>Client: HTTP 200 cookie : SESSIONID=35343514...
+    Note left of Backend: Every following message will<br>have the cookie header SESSIONID
+
+    Client->>Backend: /api/game/save-entry
+    break when HTTP 400
+      Backend-->>Client: reponse_code : 2 // ALREADY_FOUND
+        Note left of Backend: The client computed something wrong.The<br>server detected it.The client will<br>stop the game and display a message.<br>The server will generate a log for<br>the devs with all session information<br>(expect sensitive data such as IP)
+    end
+    Backend-->>Client: reponse_code : 1 // OK
 ```
 
 <!-- @TODO create sequence diagram or sth
@@ -23,16 +31,16 @@ Séquence de traitements backend particuliers :
     - réponse 400 si incorrect, le frontend doit indiquer au joueur qu’il est suspecté de triche et que donc les données anonymisées ne seront pas sauvegarder
 - si correct, alors on enregistre les données statistiques en bases
 - Quoi qu’il arrive on ferme la session et on nettoie. -->
+
 <!-- @TODO create sequence diagram or sth
 Séquence de traitements backend particuliers :
 
 - Une requête arrive, elle a une id de session
-- La session est récupéré
 - La réponse (au sens de réponse au jeu) est comparé avec ce qu’il est possible de trouver sur le jeu/carte et ce qui a déjà été trouvé. 3 cas
 - la réponse est bien une nouvelle réponse :  200 OK
 - la réponse a déjà été trouvé :  400 BAD REQUEST
 - la réponse est fausse :  400 BAD REQUEST
-- [voir comment gérer le timestamp et la triche]
+- [voir comment gérer la triche]
 - La réponse approprié est renvoyé au client -->
 
 <!-- 
@@ -45,7 +53,7 @@ Une énum GameResponse est à réfléchir pour déterminer les réponses possibl
 
 ```ts
 interface SaveEntryStatus{
-   reponsecode : GameResponse
+   reponse_code : GameResponse
 }
 
 enum GameResponse {

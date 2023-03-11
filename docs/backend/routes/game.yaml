@@ -66,7 +66,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  reponsecode:
+                  reponse_code:
                     type: number
                     example: 1
                     paths:
