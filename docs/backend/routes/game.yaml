@@ -70,11 +70,11 @@ paths:
                     type: number
                     example: 1
                     paths:
-  /api/game/end:
+  /api/game/timeout:
     post:
       security:
         - sessionId: []
-      summary: Ends a game session.
+      summary: Tells the server session ended normally by timeout.
       tags:
         - game
       responses:

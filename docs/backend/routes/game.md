@@ -10,15 +10,40 @@
 sequenceDiagram
     Client->>Backend: /api/game/start
     Backend-->>Client: HTTP 200 cookie : SESSIONID=35343514...
-    Note left of Backend: Every following message will<br>have the cookie header SESSIONID
+    Note left of Backend: See 1
 
-    Client->>Backend: /api/game/save-entry
-    break when HTTP 400
-      Backend-->>Client: reponse_code : 2 // ALREADY_FOUND
-        Note left of Backend: The client computed something wrong.The<br>server detected it.The client will<br>stop the game and display a message.<br>The server will generate a log for<br>the devs with all session information<br>(expect sensitive data such as IP)
+    loop save entry
+        Client->>Backend: /api/game/save-entry
+        break when HTTP 400
+          Backend-->>Client: reponse_code : 2 // ALREADY_FOUND
+            Note left of Backend: See 2
+        end
+        Backend-->>Client: reponse_code : 1 // OK
+        Note left of Backend: See 3
     end
-    Backend-->>Client: reponse_code : 1 // OK
+
+    break when abort-session
+      Client-->>Backend: /api/game/abort-session
+      Note left of Backend: See 4
+    end
+
+    alt Player gave up
+      Client->>Backend: /api/game/give-up
+      Note left of Backend: See 5
+      Backend-->>Client: HTTP 200
+    else
+      Client->>Backend: /api/game/timeout
+      Note left of Backend: See 6
+      Backend-->>Client: HTTP 200
+    end
 ```
+
+1. Every following message will have the cookie header SESSIONID.
+2. The client computed something wrong.Theserver detected it.The client willstop the game and display a message.The server will generate a log forthe devs with all session information(expect sensitive data such as IP).
+3. If the client found all responses. It displays the "win" page and the server automatically saves statistics.
+4. The client hard quit the page.
+5. The client wants to stop the game.
+6. The client didn't finished before the timeout.
 
 <!-- @TODO create sequence diagram or sth
 
@@ -32,46 +57,30 @@ Séquence de traitements backend particuliers :
 - si correct, alors on enregistre les données statistiques en bases
 - Quoi qu’il arrive on ferme la session et on nettoie. -->
 
-<!-- @TODO create sequence diagram or sth
-Séquence de traitements backend particuliers :
-
-- Une requête arrive, elle a une id de session
-- La réponse (au sens de réponse au jeu) est comparé avec ce qu’il est possible de trouver sur le jeu/carte et ce qui a déjà été trouvé. 3 cas
-- la réponse est bien une nouvelle réponse :  200 OK
-- la réponse a déjà été trouvé :  400 BAD REQUEST
-- la réponse est fausse :  400 BAD REQUEST
-- [voir comment gérer la triche]
-- La réponse approprié est renvoyé au client -->
-
-<!-- 
-Comments :
-Une énum GameResponse est à réfléchir pour déterminer les réponses possible d’erreur prévues. Cette énum pourrait prendre les valeurs suivantes : OK, ALREADY_FOUND, WRONG_GUESS, UNKNOWN_ERROR
- -->
 ## Typescript schema
 
 ### Save entry
 
 ```ts
-interface SaveEntryStatus{
-   reponse_code : GameResponse
+interface SaveEntryStatus {
+    reponse_code: GameResponse;
 }
 
 enum GameResponse {
-    OK=1,
-    ALREADY_FOUND=2,
-    WRONG_GUESS=3,
-    UNKNOWN_ERROR=4
+    OK = 1,
+    ALREADY_FOUND = 2,
+    WRONG_GUESS = 3,
+    UNKNOWN_ERROR = 4,
 }
 ```
 
 #### Example
+
 ```json
 {
-   "reponsecode" : 1
+    "reponsecode": 1
 }
 ```
-
-
 
 ## Associated SQL Request
 
