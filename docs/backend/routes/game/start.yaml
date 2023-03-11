@@ -1,0 +1,38 @@
+openapi: 3.0.0
+tags:
+    - name: game
+paths:
+    /api/game/start:
+        post:
+            security:
+                - sessionId: []
+            summary: Starts a game session.
+            tags:
+                - game
+            requestBody:
+                description: The identifiers of the map.
+                name: Map id
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                id_map:
+                                    type: string
+                                    summary: The id of the map
+                                    example: 'FRANCE_DEPARTMENTS'
+                                id_gamemode:
+                                    type: string
+                                    summary: The id of the gamemode
+                                    example: 'AGAINST_THE_CLOCK'
+            responses:
+                '200':
+                    description: OK
+# defines cookie
+components:
+    securitySchemes:
+        sessionId:
+            type: string
+            in: cookie
+            name: SESSIONID
