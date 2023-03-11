@@ -19,31 +19,33 @@ sequenceDiagram
             Note left of Backend: See 2
         end
         Backend-->>Client: reponse_code : 1 // OK
-        Note left of Backend: See 3
     end
 
-    break when abort-session
-      Client-->>Backend: /api/game/abort-session
-      Note left of Backend: See 4
-    end
-
-    alt Player gave up
+    alt gave up
       Client->>Backend: /api/game/give-up
-      Note left of Backend: See 5
+      Note left of Backend: See 3
       Backend-->>Client: HTTP 200
-    else
+    else found all responses
+      Note left of Backend: See 4
+    else timeout
       Client->>Backend: /api/game/timeout
-      Note left of Backend: See 6
+      Note left of Backend: See 5
       Backend-->>Client: HTTP 200
     end
 ```
 
 1. Every following message will have the cookie header SESSIONID.
-2. The client computed something wrong.Theserver detected it.The client willstop the game and display a message.The server will generate a log forthe devs with all session information(expect sensitive data such as IP).
-3. If the client found all responses. It displays the "win" page and the server automatically saves statistics.
-4. The client hard quit the page.
-5. The client wants to stop the game.
-6. The client didn't finished before the timeout.
+2. The client computed something wrong.Theserver detected it.The client willstop the game and display a message.The server will generate a log for the devs with all session information(expect sensitive data such as IP).
+4. The client wants to stop the game. The server saves statistics.
+5. If the client found all responses. It displays the "win" page and the server automatically saves statistics.
+6. The client didn't finished before the timeout. The server saves statistics.
+
+Note :
+
+- For a game creation, the sessions' cookie is instanciated throuh `SET-COOKIE` HTTP header.
+- Session cookies will have the following propertiers by default :<br>`Secure`, `SameSite : strict` and `HttpOnly`.
+- If the server does not receive any client request before 1 minute after the game should have ended, then end session and does not save statisics.
+- If the player tries to quit the page normally, an alert tells him that doing so will be considered as giving up, and a `give-up` request will be sent.
 
 <!-- @TODO create sequence diagram or sth
 
@@ -84,34 +86,7 @@ enum GameResponse {
 
 ## Associated SQL Request
 
-### Give up
-
-```sql
-UPDATE success_or_give_up_statistics
-SET play_count = play_count + 1, give_up_count = give_up_count +1
-WHERE id_map = :MAP_ID
-AND id_gamemode = :GAMEMODE_ID
-AND lang_id = :LANG_ID;
-
-UPDATE map_statistics
-SET play_count = play_count + 1
-WHERE id_map = :MAP_ID
-AND lang_id = :LANG_ID;
-
-UPDATE gamemode_statistics
-SET play_count = play_count + 1
-WHERE id_gamemode = :GAMEMODE_ID
-AND lang_id = :LANG_ID;
-
-UPDATE game_statistics
-SET found_count = found_count + 1
-WHERE  id_map = :MAP_ID
-AND id_gamemode = :GAMEMODE_ID
-AND lang_id = :LANG_ID
-AND id_map_data = :ID_MAP_DATA;
-```
-
-### End game
+### Statistics on end game
 
 ```sql
 UPDATE map_statistics
@@ -123,17 +98,17 @@ UPDATE gamemode_statistics
 SET play_count = play_count + 1
 WHERE id_map = :ID_MAP
 AND id_lang = :ID_LANG;
-
-UPDATE game_statistics
-SET found_count = found_count + 1
-WHERE id_gamemode = :ID_GAMEMODE
-AND id_lang = :ID_LANG
-AND id_map = :ID_MAP
-AND id_map_data IN(:ID_MAP_DATA, "FR_01", "FR_02", ...);
 
 UPDATE success_or_give_up_statistics
 SET play_count = play_count + 1
 WHERE id_gamemode = :ID_GAMEMODE
 AND id_lang = :ID_LANG
 AND id_map = :ID_MAP;
+
+UPDATE game_statistics
+SET found_count = found_count + 1
+WHERE id_map = :ID_MAP
+AND id_gamemode = :ID_GAMEMODE
+AND id_lang = :ID_LANG
+AND id_map_data IN(:ID_MAP_DATA, "FR_01", "FR_02", ...);
 ```
