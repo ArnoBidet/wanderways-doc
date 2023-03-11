@@ -36,8 +36,7 @@ nav:
           - "backend/routes/index.md"
           - Map:
               - Get the list of maps: "backend/routes/map/list.md"
-          - Game:
-              - "backend/routes/game/index.md"
+          - Game: "backend/routes/game.md"
           - Map Data:
               - Get datas from a map: "backend/routes/mapdata/data.md"
           - Tag:
