@@ -24,7 +24,6 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     name: Discord notification
-      if: always()
       uses: appleboy/discord-action@master
       with:
         webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
