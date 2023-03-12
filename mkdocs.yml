@@ -31,19 +31,15 @@ extra:
 nav:
   - Introduction: "index.md"
   - Backend:
-      - "backend/index.md"
-      - Api:
-          - "backend/routes/index.md"
-          - Map:
-              - Get the list of maps: "backend/routes/map/list.md"
-          - Game: "backend/routes/game.md"
-          - Map Data:
-              - Get datas from a map: "backend/routes/mapdata/data.md"
-          - Tag:
-              - Get the list of tags: "backend/routes/tag/list.md"
-          - Statistics:
-              - Average awareness: "backend/routes/statistics/average-awareness.md"
-      - Database: "backend/database.md"
+    - "backend/index.md"
+    - Api:
+      - Beforehand: "backend/routes/index.md"
+      - Map: "backend/routes/map.md"
+      - Game: "backend/routes/game.md"
+      - Map Data: "backend/routes/mapdata.md"
+      - Tag: "backend/routes/tag.md"
+      - Statistics: "backend/routes/statistics.md"
+    - Database: "backend/database.md"
   - "frontend/frontend.md"
   - "admin-panel/admin-panel.md"
   - About:

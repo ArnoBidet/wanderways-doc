@@ -1,6 +1,6 @@
 # Map's data
 
-!!swagger data.yaml!!
+!!swagger mapdata.yaml!!
 
 ## Typescript schema
 

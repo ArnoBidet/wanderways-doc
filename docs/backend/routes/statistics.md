@@ -1,7 +1,7 @@
 # Average awareness
 
 
-!!swagger average-awareness.yaml!!
+!!swagger statistics.yaml!!
 
 
 ## Typescript schema

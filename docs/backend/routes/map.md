@@ -1,7 +1,7 @@
 # Map's list
 
 
-!!swagger list.yaml!!
+!!swagger map.yaml!!
 
 
 ## Typescript schema

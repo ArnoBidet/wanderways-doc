@@ -1,6 +1,6 @@
 # Tag's list
 
-!!swagger list.yaml!!
+!!swagger tag.yaml!!
 
 ## Typescript schema
 
