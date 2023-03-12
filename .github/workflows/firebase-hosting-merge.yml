@@ -7,22 +7,26 @@ name: Deploy to Firebase Hosting on merge
     branches:
       - gh-pages
 jobs:
-  build_and_deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.x
       - uses: actions/cache@v2
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: pip install mkdocs-material markdown Pygments mike mkdocs-render-swagger-plugin
-      - run: mkdocs build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - deploy:
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WANDERWAYS_DOCUMENTATION }}'
           channelId: live
           projectId: wanderways-documentation
+  notify:
+    runs-on: ubuntu-latest
+    name: Discord notification
+      if: always()
+      uses: appleboy/discord-action@master
+      with:
+        webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
+        webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
+        args: The last deployment was a ${{ steps.deploy.outcome }}.
