@@ -21,7 +21,7 @@ pip install mkdocs mkdocs-material markdown Pygments mike mkdocs-render-swagger-
 
 To upload your documentation version, use the command :
 
-`mike deploy --push --update-aliases MAJOR.MINOR latest`
+`mike deploy --push --branch online --update-aliases MAJOR.MINOR latest`
 
 Please, only create a new version on significants changes.
 
