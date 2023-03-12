@@ -14,8 +14,7 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - deploy:
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WANDERWAYS_DOCUMENTATION }}'
@@ -23,9 +22,11 @@ jobs:
           projectId: wanderways-documentation
   notify:
     runs-on: ubuntu-latest
-    name: Discord notification
-      uses: appleboy/discord-action@master
-      with:
-        webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
-        webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
-        args: The last deployment was a ${{ steps.deploy.outcome }}.
+    steps:
+      - uses: technote-space/workflow-conclusion-action@v3 # https://github.com/marketplace/actions/workflow-conclusion-action
+      - uses: appleboy/discord-action@master
+        if: always()
+        with:
+          webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
+          webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
+          args: The last deployment was a ${{ env.WORKFLOW_CONCLUSION }}.
