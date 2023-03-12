@@ -39,6 +39,7 @@ nav:
       - Map Data: "backend/routes/mapdata.md"
       - Tag: "backend/routes/tag.md"
       - Statistics: "backend/routes/statistics.md"
+    - Data harvest strategy : "backend/data-harvest-strategy.md"
     - Database: "backend/database.md"
   - "frontend/frontend.md"
   - "admin-panel/admin-panel.md"
