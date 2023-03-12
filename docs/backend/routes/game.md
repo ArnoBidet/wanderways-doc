@@ -4,7 +4,7 @@
 
 !!swagger game.yaml!!
 
-## Sequence diagram
+## Game scenarion - Sequence diagram
 
 ```mermaid
 sequenceDiagram
@@ -43,7 +43,8 @@ sequenceDiagram
 Note :
 
 - For a game creation, the sessions' cookie is instanciated throuh `SET-COOKIE` HTTP header.
-- Session cookies will have the following propertiers by default :<br>`Secure`, `SameSite : strict` and `HttpOnly`.
+- Session cookies will have the following propertiers by default :<br>[`Secure : true`, `HttpOnly : true`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies),  and [`SameSite : strict`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite).
+- The generated cookie will have a `Max-Age` of the duration of the game + 5seconds to mitigate timing issue between end of the game and effective end request.
 - If the server does not receive any client request before 1 minute after the game should have ended, then end session and does not save statisics.
 - If the player tries to quit the page normally, an alert tells him that doing so will be considered as giving up, and a `give-up` request will be sent.
 
@@ -61,18 +62,54 @@ Séquence de traitements backend particuliers :
 
 ## Typescript schema
 
-### Save entry
+### Game list - Response
 
 ```ts
-interface SaveEntryStatus {
-    reponse_code: GameResponse;
+/**
+ * A an array of json objects representing a game id and its popularity
+ */
+interface Game {
+  /**
+   * The id of the gamemode
+   */
+  id_gamemode:string,
+  /**
+   * The number of time the gamemode was played
+   */
+  play_count: number
 }
+```
 
-enum GameResponse {
-    OK = 1,
-    ALREADY_FOUND = 2,
-    WRONG_GUESS = 3,
-    UNKNOWN_ERROR = 4,
+#### Example
+
+```json
+[
+  {
+    "id_gamemode": "AGAINST_THE_CLOCK",
+    "play_count": 100
+  },
+  {
+    "id_gamemode": "FLAG_QUIZZ",
+    "play_count": 200
+  }
+]
+```
+
+### Start - Request
+
+```ts
+/**
+ * A json object representing what map the player will be playing on, and what game it is
+ */
+interface StartGameRequest {
+  /**
+   * The id of the map 
+   */
+  id_map:string,
+  /**
+   * The id of the gamemode
+   */
+  id_gamemode:string
 }
 ```
 
@@ -80,7 +117,62 @@ enum GameResponse {
 
 ```json
 {
-    "reponsecode": 1
+  "id_map": "FRANCE_DEPARTMENTS",
+  "id_gamemode": "AGAINST_THE_CLOCK"
+}
+```
+
+### Save entry - Request
+
+```ts
+/**
+ * A json object representing the player's answer.
+ */
+interface SaveEntryRequest {
+  /**
+   * The player's answer
+   */
+  response: string,
+  /**
+   * The data's id supposedly associated
+   */
+  supposedCorrespondance: string
+}
+
+```
+
+#### Example
+
+```json
+{
+  "response": "loire atlantique",
+  "supposedCorrespondance": "FR-44"
+}
+```
+
+### Save entry - Response
+
+```ts
+/**
+ * What the server concludes with the given answer. 
+ */
+interface SaveEntryResponse {
+  reponse_code: GameResponse;
+}
+
+enum GameResponse {
+  OK = 1,
+  ALREADY_FOUND = 2,
+  WRONG_GUESS = 3,
+  UNKNOWN_ERROR = 4,
+}
+```
+
+#### Example
+
+```json
+{
+  "reponsecode": 1
 }
 ```
 

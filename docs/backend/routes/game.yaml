@@ -2,6 +2,14 @@ openapi: 3.0.0
 tags:
   - name: game
 paths:
+  /api/game/list:
+    get:
+      summary: Gets the list of available game along with some statistics.
+      tags:
+        - game
+      responses:
+        "200":
+          description: OK. More details on the page below.
   /api/game/start:
     post:
       summary: Starts a game session.

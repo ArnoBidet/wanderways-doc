@@ -8,3 +8,6 @@ paths:
       description : Get the list of maps along with their description, thumbnails, tags, wiki link and statistiques such as popularity.
       tags:
         - map
+      responses:
+        "200":
+          description: OK. More details on the page below.
