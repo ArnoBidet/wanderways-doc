@@ -16,7 +16,7 @@ jobs:
           path: .cache
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          github_token: '${{ secrets.PAT }}' # https://github.com/orgs/community/discussions/25702
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WANDERWAYS_DOCUMENTATION }}'
           channelId: live
           projectId: wanderways-documentation
