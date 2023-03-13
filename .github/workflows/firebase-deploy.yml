@@ -18,9 +18,10 @@ jobs:
           channelId: live
           projectId: wanderways-documentation
       - uses: technote-space/workflow-conclusion-action@v3 # https://github.com/marketplace/actions/workflow-conclusion-action
-      - uses: appleboy/discord-action@master
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@master
         if: always()
         with:
-          webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
-          webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
           args: The last deployment was a ${{ env.WORKFLOW_CONCLUSION }}.
