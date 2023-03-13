@@ -21,9 +21,6 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WANDERWAYS_DOCUMENTATION }}'
           channelId: live
           projectId: wanderways-documentation
-  notify:
-    runs-on: ubuntu-latest
-    steps:
       - uses: technote-space/workflow-conclusion-action@v3 # https://github.com/marketplace/actions/workflow-conclusion-action
       - uses: appleboy/discord-action@master
         if: always()

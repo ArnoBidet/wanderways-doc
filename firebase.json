@@ -1,11 +1,12 @@
 {
   "hosting": {
-    "public": "site",
+    "public": ".",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**",
-      ".nojekill"
+      ".nojekill",
+      ".github"
     ]
   }
 }
