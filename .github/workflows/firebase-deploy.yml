@@ -22,6 +22,5 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
         uses: Ilshidur/action-discord@master
-        if: always()
         with:
           args: The last deployment was a ${{ env.WORKFLOW_CONCLUSION }}.
