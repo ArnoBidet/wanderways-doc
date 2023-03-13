@@ -20,7 +20,7 @@ jobs:
       - uses: technote-space/workflow-conclusion-action@v3 # https://github.com/marketplace/actions/workflow-conclusion-action
       - name: Discord notification
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
         uses: Ilshidur/action-discord@master
         if: always()
         with:
