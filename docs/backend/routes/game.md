@@ -70,11 +70,11 @@ Séquence de traitements backend particuliers :
  */
 interface Game {
   /**
-   * The id of the gamemode
+   * The id of the gamemod
    */
-  id_gamemode:string,
+  id_gamemod:string,
   /**
-   * The number of time the gamemode was played
+   * The number of time the gamemod was played
    */
   play_count: number
 }
@@ -85,11 +85,11 @@ interface Game {
 ```json
 [
   {
-    "id_gamemode": "AGAINST_THE_CLOCK",
+    "id_gamemod": "AGAINST_THE_CLOCK",
     "play_count": 100
   },
   {
-    "id_gamemode": "FLAG_QUIZZ",
+    "id_gamemod": "FLAG_QUIZZ",
     "play_count": 200
   }
 ]
@@ -107,9 +107,9 @@ interface StartGameRequest {
    */
   id_map:string,
   /**
-   * The id of the gamemode
+   * The id of the gamemod
    */
-  id_gamemode:string
+  id_gamemod:string
 }
 ```
 
@@ -118,7 +118,7 @@ interface StartGameRequest {
 ```json
 {
   "id_map": "FRANCE_DEPARTMENTS",
-  "id_gamemode": "AGAINST_THE_CLOCK"
+  "id_gamemod": "AGAINST_THE_CLOCK"
 }
 ```
 
@@ -186,21 +186,21 @@ SET play_count = play_count + 1
 WHERE id_map = :ID_MAP
 AND id_lang = :ID_LANG;
 
-UPDATE gamemode_statistics
+UPDATE gamemod_statistics
 SET play_count = play_count + 1
 WHERE id_map = :ID_MAP
 AND id_lang = :ID_LANG;
 
 UPDATE success_or_give_up_statistics
 SET play_count = play_count + 1
-WHERE id_gamemode = :ID_GAMEMODE
+WHERE id_gamemod = :ID_GAMEMOD
 AND id_lang = :ID_LANG
 AND id_map = :ID_MAP;
 
 UPDATE game_statistics
 SET found_count = found_count + 1
 WHERE id_map = :ID_MAP
-AND id_gamemode = :ID_GAMEMODE
+AND id_gamemod = :ID_GAMEMOD
 AND id_lang = :ID_LANG
 AND id_map_data IN(:ID_MAP_DATA, "FR_01", "FR_02", ...);
 ```

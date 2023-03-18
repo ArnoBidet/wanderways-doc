@@ -17,15 +17,15 @@ The current language is always taken into account. If the language received is u
 
 ## Map statistics
 
-At the end of a game, successful or given up, regardless of the game mode, increments its value for the given map type
+At the end of a game, successful or given up, regardless of the game mod, increments its value for the given map type
 
-## Gamemode statistics
+## Gamemod statistics
 
-At the end of a game, successful or given up, regardless of the game mode, increments its value for the given gamemode type
+At the end of a game, successful or given up, regardless of the game mod, increments its value for the given gamemod type
 
 ## Success or give up statistics
 
-At the end of a game, successful or given up, increments the `play_count` value for each game played and increments `give_up_count` when the player gives up, taking into account the user's language for the game mode and the given map.
+At the end of a game, successful or given up, increments the `play_count` value for each game played and increments `give_up_count` when the player gives up, taking into account the user's language for the game mod and the given map.
 
 The value `unfinished_count` is computed with the values
 ```

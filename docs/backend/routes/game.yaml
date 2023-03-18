@@ -28,9 +28,9 @@ paths:
                   type: string
                   summary: The id of the map
                   example: "FRANCE_DEPARTMENTS"
-                id_gamemode:
+                id_gamemod:
                   type: string
-                  summary: The id of the gamemode
+                  summary: The id of the gamemod
                   example: "AGAINST_THE_CLOCK"
       responses:
         "200":
