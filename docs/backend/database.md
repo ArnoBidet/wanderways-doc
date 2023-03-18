@@ -53,7 +53,6 @@ CREATE TABLE gamemod_map (
 
 CREATE TABLE data (
     id VARCHAR(50) PRIMARY KEY,
-    flag_url VARCHAR(2048),
     data_group VARCHAR(50) REFERENCES data(id),
     data_capital VARCHAR(50) REFERENCES data(id),
     numeric_code VARCHAR(50) NOT NULL

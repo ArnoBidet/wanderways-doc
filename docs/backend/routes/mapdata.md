@@ -8,11 +8,9 @@
 interface MapData{
     id: string,
     data_translation : string[],
-    flag_url: string,
     group: {
         id: string,
         data_translation : string[]
-        flag_url: string,
         group: null,
         capital: null,
         numeric_code: string
@@ -20,7 +18,6 @@ interface MapData{
     capital:{
         id: string,
         data_translation : string[]
-        flag_url: string,
         group: null,
         capital: null,
         numeric_code: string
@@ -35,11 +32,9 @@ interface MapData{
     {
         "id": "FR-01",
         "data_translation" : ["Ain"],
-        "flag_url": "https://example...",
         "group": {
             "id": "FR-ARA",
             "data_translation" : ["Auvergne-Rhône-Alpes"],
-            "flag_url": "https://example...",
             "group": null,
             "capital": null,
             "numeric_code": "FR-ARA"
@@ -47,7 +42,6 @@ interface MapData{
         "capital":{
             "id": "FR-BOURG-EN-BRESSE",
             "data_translation" : ["Bourg-en-Bresse"],
-            "flag_url": "https://example...",
             "group": null,
             "capital": null,
             "numeric_code": "01012"
@@ -57,11 +51,9 @@ interface MapData{
     {
         "id": "FR-02",
         "data_translation" : ["Aisne"],
-        "flag_url": "https://example...",
         "group": {
             "id": "FR-HDF",
             "data_translation" : ["Hauts-de-France"],
-            "flag_url": "https://example...",
             "group": null,
             "capital": null,
             "numeric_code": "FR-HDF"
@@ -69,7 +61,6 @@ interface MapData{
         "capital":{
             "id": "FR-LAON",
             "data_translation" : ["Laon"],
-            "flag_url": "https://example...",
             "group": null,
             "capital": null,
             "numeric_code": "02000"
