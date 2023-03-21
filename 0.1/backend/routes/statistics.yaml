@@ -2,7 +2,7 @@ openapi: 3.0.0
 tags:
   - name: Statistics
 paths:
-  /api/statistics/average-awareness/{ID_GAME_MODE}/{ID_MAP}:
+  /api/statistics/average-awareness/{ID_GAMEMOD}/{ID_MAP}:
     get:
       summary : 
       description : Get the list of maps along with their description, thumbnails, tags, wiki link and statistiques such as popularity.
@@ -10,8 +10,8 @@ paths:
         - Statistics
       parameters:
         - in: path
-          name: ID_GAME_MODE
-          description: The gamemode's id
+          name: ID_GAMEMOD
+          description: The gamemod's id
           required: true
           type: string
           example : "GAMEMODE_AGAINST-CLOCK"
