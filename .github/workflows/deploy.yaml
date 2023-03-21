@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-       - name: Git Version # Get the versin
+      - name: Git Version # Get the versin
         id: version
         uses: codacy/git-version@2.7.1
       - name: Use the version
