@@ -35,7 +35,6 @@ nav:
     - "general/roadmap.md"
     - "general/games.md"
     - "general/team.md"
-  - Introduction: "index.md"
   - Backend:
     - "backend/index.md"
     - Api:
