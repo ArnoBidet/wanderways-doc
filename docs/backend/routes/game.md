@@ -85,14 +85,22 @@ interface Game {
 ```json
 [
   {
-    "id_gamemod": "AGAINST_THE_CLOCK",
-    "play_count": 100
-  },
-  {
-    "id_gamemod": "FLAG_QUIZZ",
-    "play_count": 200
+    "id_gamemod": "AGAINST_CLOCK",
+    "play_count": 0
   }
 ]
+```
+
+#### Associated SQL request
+
+```sql
+CREATE VIEW game_list AS
+    SELECT g.id, COALESCE(gs.play_count,0) as play_count
+    FROM gamemod g 
+    LEFT JOIN gamemod_statistic gs
+    ON g.id = gs. id_gamemod;
+
+SELECT * FROM game_list;
 ```
 
 ### Start - Request

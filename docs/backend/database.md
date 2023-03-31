@@ -7,15 +7,15 @@
 ### Table generation script
 
 ```sql
-CREATE TABLE languages (
-    id VARCHAR(50),
+CREATE TABLE lang (
+    id CHAR(5),
     PRIMARY KEY(id)
 );
 
-CREATE TABLE translations (
+CREATE TABLE translation (
     id SERIAL PRIMARY KEY,
-    id_lang VARCHAR(50) REFERENCES languages(id),
-    translation text,
+    id_lang VARCHAR(50) REFERENCES lang(id),
+    translated_value text,
     id_item VARCHAR(50)
 );
 
@@ -51,37 +51,37 @@ CREATE TABLE gamemod_map (
     PRIMARY KEY(id_gamemod, id_map)
 );
 
-CREATE TABLE data (
+CREATE TABLE geo_data (
     id VARCHAR(50) PRIMARY KEY,
-    data_group VARCHAR(50) REFERENCES data(id),
-    data_capital VARCHAR(50) REFERENCES data(id),
-    numeric_code VARCHAR(50) NOT NULL
+    geo_data_group VARCHAR(50) REFERENCES geo_data(id),
+    geo_data_capital VARCHAR(50) REFERENCES geo_data(id),
+    numeric_code VARCHAR(50)
 );
 
-CREATE TABLE map_data (
+CREATE TABLE map_geo_data (
     id SERIAL PRIMARY KEY,
-    id_data VARCHAR(50) REFERENCES data(id),
+    id_geo_data VARCHAR(50) REFERENCES geo_data(id),
     id_map VARCHAR(50) REFERENCES map(id)
 );
 
-CREATE TABLE map_statistics (
+CREATE TABLE map_statistic (
     id_map VARCHAR(50) REFERENCES map(id),
-    id_lang VARCHAR(50) REFERENCES languages(id),
+    id_lang VARCHAR(50) REFERENCES lang(id),
     play_count INT DEFAULT 0,
     PRIMARY KEY(id_map, id_lang)
 );
 
-CREATE TABLE gamemod_statistics (
+CREATE TABLE gamemod_statistic (
     id_gamemod VARCHAR(50) REFERENCES gamemod(id),
-    id_lang VARCHAR(50) REFERENCES languages(id),
+    id_lang VARCHAR(50) REFERENCES lang(id),
     play_count INT DEFAULT 0,
     PRIMARY KEY(id_gamemod, id_lang)
 );
 
-CREATE TABLE success_or_give_up_statistics (
+CREATE TABLE success_or_give_up_statistic (
     id_map VARCHAR(50) REFERENCES map(id),
     id_gamemod VARCHAR(50) REFERENCES gamemod(id),
-    id_lang VARCHAR(50) REFERENCES languages(id),
+    id_lang VARCHAR(50) REFERENCES lang(id),
     play_count INT DEFAULT 0,
     success_count INT DEFAULT 0,
     give_up_count INT DEFAULT 0,
@@ -89,55 +89,12 @@ CREATE TABLE success_or_give_up_statistics (
     PRIMARY KEY(id_map, id_gamemod, id_lang)
 );
 
-CREATE TABLE game_statistics (
+CREATE TABLE game_statistic (
     id_gamemod VARCHAR(50) REFERENCES gamemod(id),
-    id_map_data INT REFERENCES map_data(id),
-    id_lang VARCHAR(50) REFERENCES languages(id),
+    id_map_geo_data INT REFERENCES map_geo_data(id),
+    id_lang VARCHAR(50) REFERENCES lang(id),
     id_map VARCHAR(50) REFERENCES map(id),
     found_count INT DEFAULT 0,
-    PRIMARY KEY(id_gamemod, id_map_data, id_lang, id_map)
+    PRIMARY KEY(id_gamemod, id_map_geo_data, id_lang, id_map)
 );
-
-```
-
-### Dataset generation script
-
-```sql
-INSERT INTO languages (id)
-VALUES ('fr-FR');
-
-INSERT INTO tag_group (id)
-VALUES  ('TAG_GROUP_CONTINENT'),
-        ('TAG_GROUP_COUNTRY'),
-        ('TAG_GROUP_ECONOMIC_UNION');
-
-INSERT INTO tag (id,id_group)
-VALUES  ('TAG_FRANCE','TAG_GROUP_COUNTRY'),
-        ('TAG_JAPAN','TAG_GROUP_COUNTRY'),
-        ('TAG_EUROPE','TAG_GROUP_CONTINENT'),
-        ('TAG_ASIA','TAG_GROUP_CONTINENT');
-
-INSERT INTO map (id, id_description, url_wiki)
-VALUES  ('FRANCE_DEPARTMENT', "DESCRIPTION_FRANCE_DEPARTMENT", ""),
-        ('JAPAN_PREFECTURES', "DESCRIPTION_JAPAN", "");
-
-INSERT INTO map_statistics (id_map, id_lang, play_count)
-VALUES ('FRANCE_DEPARTMENT', "fr-FR", 700);
-
-INSERT INTO translations (id, id_lang, translation, id_item)
-VALUES  (1,'fr-FR', "France", "TAG_FRANCE"),
-        (2,'fr-FR', "Japon", "TAG_JAPAN"),
-        (3,'fr-FR', "Europe", "TAG_EUROPE"),
-        (4,'fr-FR', "Asie", "TAG_ASIA"),
-        (5,'fr-FR', "Continent", "TAG_GROUP_CONTINENT"),
-        (6,'fr-FR', "Pays", "TAG_GROUP_COUNTRY"),
-        (7,'fr-FR', "france - Départements", "FRANCE_DEPARTMENT"),
-        (8,'fr-FR', "Japon - Préfectures", "JAPAN_PREFECTURES"),
-        (9,'fr-FR', "Départements de france", "DESCRIPTION_FRANCE_DEPARTMENT"),
-        (6,'fr-FR', "Préfectures du japon", "DESCRIPTION_JAPAN");
-
-
-INSERT INTO tag_map (id_map, id_tag)
-VALUES  ("FRANCE_DEPARTMENT","TAG_FRANCE"),
-        ("FRANCE_DEPARTMENT","TAG_EUROPE");
 ```

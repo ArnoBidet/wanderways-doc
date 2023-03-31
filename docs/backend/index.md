@@ -9,9 +9,9 @@ flowchart LR
     Client<-- HTTP requests -->Rocket
     subgraph Backend server
       subgraph Rust API
-        Rocket<-->Diesel
+        Rocket<-->Tokio_postgres
       end
-    Diesel <--> PostgreSQL
+    Tokio_postgres <--> PostgreSQL
     end
 ```
 
@@ -28,8 +28,8 @@ For this project, we're using the following :
 
 |Logo|Description|
 |-|-|
-|<img style="width:4rem" src="/assets/diesel.png">|[Diesel](https://diesel.rs/) is an ORM (Object Relational Mapping) library that allows simple (through library api) and secure (through automatic argument parsing) requests to SQL databases such as Postgres, MySQL and SQLite. <!-- link to github source code for this -->|
-|<img style="width:4rem" src="/assets/rocket.png">|[Rocket](https://rocket.rs/) is a web framework that allows to write backend REST endpoints easily. <!-- link to github source code for this -->|
+|<img style="width:4rem" src="/assets/tokio.png">|[Diesel](https://tokio.rs/) is on of the most popular asynchronous environment implementation for Rust. It is widly implemented in many other library (Rocket uses tokio). More specifically, for the database queries, we used [tokio_postgres](https://docs.rs/tokio-postgres/latest/tokio_postgres/). [Github](https://github.com/sfackler/rust-postgres)
+|<img style="width:4rem" src="/assets/rocket.png">|[Rocket](https://rocket.rs/) is a web framework that allows to write backend REST endpoints easily. [Github](https://github.com/SergioBenitez/Rocket)
 
 ## Database - Postgres
 
@@ -46,3 +46,13 @@ The main reason is that SQL is mastered by the members of the team. Going toward
 ### Sources
 - [PostgreSQL specificity](https://www.postgresql.org/about/)
 - [More on sql vs nosql](https://www.mongodb.com/compare/mongodb-postgresql)
+
+## Why not using an ORM in rust ?
+
+We investigated an ORM, [Diesel](https://diesel.rs/), to see if it could fit our needs. But, in the end, we didn't for the following reasons :
+
+- We have weak coupling on table translations, which is not standard (standard is using foreing keys to enforce integrity)
+- Some requests uses special operators that are unnecesseraly hard to implements for our needs. Such as `string_agg` or `coalesc`
+- We have quite complexe requests with sub-select and other things.
+
+Using a more classic raw sql executor (with prepared request to prevent SQL Injections) allows us to switch some things, encouraging us to think about performance. We decided to take full usage of SBD capabilities with indexed, view, procedures and functions.
