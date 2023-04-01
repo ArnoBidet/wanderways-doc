@@ -28,12 +28,12 @@ For this project, we're using the following :
 
 |Logo|Description|
 |-|-|
-|<img style="width:4rem" src="/assets/tokio.png">|[Diesel](https://tokio.rs/) is on of the most popular asynchronous environment implementation for Rust. It is widly implemented in many other library (Rocket uses tokio). More specifically, for the database queries, we used [tokio_postgres](https://docs.rs/tokio-postgres/latest/tokio_postgres/). [Github](https://github.com/sfackler/rust-postgres)
-|<img style="width:4rem" src="/assets/rocket.png">|[Rocket](https://rocket.rs/) is a web framework that allows to write backend REST endpoints easily. [Github](https://github.com/SergioBenitez/Rocket)
+|<img style="width:4rem" src="assets/tokio.png">|[Diesel](https://tokio.rs/) is on of the most popular asynchronous environment implementation for Rust. It is widly implemented in many other library (Rocket uses tokio). More specifically, for the database queries, we used [tokio_postgres](https://docs.rs/tokio-postgres/latest/tokio_postgres/). [Github](https://github.com/sfackler/rust-postgres)
+|<img style="width:4rem" src="assets/rocket.png">|[Rocket](https://rocket.rs/) is a web framework that allows to write backend REST endpoints easily. [Github](https://github.com/SergioBenitez/Rocket)
 
 ## Database - Postgres
 
-<img style="width:4rem" src="/assets/postgres.png">
+<img style="width:4rem" src="assets/postgres.png">
 
 ### Why postgres ?
 
