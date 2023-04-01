@@ -17,6 +17,8 @@ interface Map {
 }
 ```
 
+Uses the header `Accepted-Language` to determine map translation.
+
 ### Example
 ```json
 [
