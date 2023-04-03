@@ -2,14 +2,16 @@
 
 !!swagger tag.yaml!!
 
+The label translations follows the given `Accepted-Language` http header.
+
 ## Typescript schema
 
 ```ts
 interface Tag{
-    id_tag_group : string,
+    id : string,
     label : string,
     tags : {
-        id_tag : string,
+        id : string,
         label : string
     }[],
 }
@@ -18,16 +20,16 @@ interface Tag{
 ### Example
 ```json
 [{
-   "id_tag_group" : "CONTINENTS",
+   "id" : "CONTINENTS",
    "label" : "Continents",
    "tags" : [{
-      "id_tag" : "EUROPE",
+      "id" : "EUROPE",
       "label" : "Europe"
    },{
-      "id_tag" : "ASIA",
+      "id" : "ASIA",
       "label" : "Asie"
    },{
-      "id_tag" : "AFRICA",
+      "id" : "AFRICA",
       "label" : "Afrique"
    }],
 }]
@@ -36,12 +38,18 @@ interface Tag{
 ## Associated SQL Request
 
 ```sql
-SELECT DISTINCT tg.id as id_group, t.id as id_tag, tr.translation as tag_label, tr2.translation as tag_group_label
-FROM tag t, tag_group tg, languages l , translations tr, translations tr2
-WHERE l.id = "fr-FR"
-AND t.id_group = tg.id
-AND tr.id_lang = l.id
-AND tr.id_item = t.id
-AND tr2.id_item = tg.id
-ORDER BY tg.id;
+CREATE MATERIALIZED VIEW mv_tag_list AS
+SELECT l.id as id_lang,
+    t.id as id_tag,
+    t.id_group,
+    get_translations(l.id, t.id) as label,
+    get_translations(l.id, t.id_group) as group_label
+FROM tag t,
+    lang l
+ORDER BY l.id,
+    t.id_group,
+    group_label,
+    label;
+
+SELECT * FROM mv_tag_list;
 ```
