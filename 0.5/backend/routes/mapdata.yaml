@@ -1,0 +1,16 @@
+openapi: 3.0.0
+tags:
+  - name: MapData
+paths:
+  /api/mapdata/{ID_MAP}/:
+    get:
+      summary: Get all the datas for a given map.
+      tags:
+        - MapData
+      parameters:
+        - in: path
+          name: ID_MAP
+          description: "The identifier of the map."
+          required: true
+          type: string
+          example : "FRANCE_DEPARTMENTS"
