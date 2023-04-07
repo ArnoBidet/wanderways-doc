@@ -1,9 +1,0 @@
-openapi: 3.0.0
-tags:
-  - name: Tags
-paths:
-  /api/tag/list:
-    get:
-      summary: Get the tags and tag groups.
-      tags:
-        - Tags
