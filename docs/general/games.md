@@ -172,11 +172,11 @@ More on mockup on [frontend section](@TODO)
 
 Latest version : 
 
-<img src="assets/games/against-clock-latest-mockup.png">
+<img src="/assets/games/against-clock-latest-mockup.png">
 
 Old versions :
 
 *One of the very first versions, when the project was named "Learn your maps"*
 
-<img src="assets/games/against-clock-old-mockup.png">
+<img src="/assets/games/against-clock-old-mockup.png">
 
