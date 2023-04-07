@@ -1,8 +1,22 @@
+---
+hide:
+  - path
+  - navigation
+  - toc
+
+---
 # Wanderways
+<style>#wanderways{display:none;}</style>
 
+<div style="display:flex; justify-content:center;">
+  <a href="https://wanderways.io" target="_blank" id="wanderways-access-button">
+    <img src="assets/logo_with_brand.png">
+  </a>
+</div>
 
-[Official website](https://wanderways.io)
+<hr style="margin:3rem 0;">
 
+<hr style="margin:3rem 0;">
 
 ## History - Raison d'être
 
