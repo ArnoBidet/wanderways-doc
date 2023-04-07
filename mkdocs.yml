@@ -32,9 +32,11 @@ extra:
 nav:
   - Introduction:
     - "index.md"
-    - "general/roadmap.md"
-    - "general/games.md"
-    - "general/team.md"
+  - Project:
+    - "project/index.md"
+    - "project/roadmap.md"
+    - "project/games.md"
+    - "project/team.md"
   - Backend:
     - "backend/index.md"
     - Api:
@@ -46,8 +48,6 @@ nav:
       - Statistics: "backend/routes/statistics.md"
     - Data harvest strategy : "backend/data-harvest-strategy.md"
     - Database: "backend/database.md"
-  - "frontend/frontend.md"
-  - "admin-panel/admin-panel.md"
-  - About:
-      - about/index.md
-      - Release Notes: about/release_notes.md
+  - Frontend:
+    - "frontend/index.md"
+    - "frontend/admin-panel.md"
