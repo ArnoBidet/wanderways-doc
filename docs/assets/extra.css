@@ -41,11 +41,6 @@ nav.home-section-container a img{
   filter: invert(1);
 }
 
-
-.md-version__current{
-  color: rgb(0,0,0) !important;
-}
-
 p {
   text-align: justify;
 }
