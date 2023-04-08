@@ -17,11 +17,10 @@ hide:
 <hr style="margin:2rem 0;">
 
 <h2 style="text-align:center;"> 🚀 Fast travel </h2>
-
 <nav class="home-section-container">
   <a href="/project">
     <img src="/assets/project.svg">
-    Project organization<br>& specifications
+    Project
   </a>
   <a href="/backend">
     <img src="/assets/backend.svg">
