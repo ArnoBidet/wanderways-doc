@@ -9,20 +9,15 @@ To run this project on your machine, follow those steps :
 - Install [material theme ](https://squidfunk.github.io/mkdocs-material/getting-started/)
 - Install [markdown](https://python-markdown.github.io/) to support internal links
 - Install [syntax highlighting](https://pygments.org/download/)
-- Install [mike] for versionning utility
 - Install [mkdocs-render-swagger-plugin](https://github.com/bharel/mkdocs-render-swagger-plugin) for swagger rendering plugin
 In a script (minus python install) : 
 ```sh
 python -m ensurepip --upgrade
-pip install mkdocs mkdocs-material markdown Pygments mike mkdocs-render-swagger-plugin
+pip install mkdocs mkdocs-material markdown Pygments mkdocs-render-swagger-plugin
 ```
 
 ## Uploading
 
-To upload your documentation version, use the command :
+To upload the documentation, use the command :
 
-`mike deploy --push --branch online --update-aliases MAJOR.MINOR latest`
-
-Please, only create a new version on significants changes.
-
-[Source](https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/)
+`mkdocs gh-deploy`
