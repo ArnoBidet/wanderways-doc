@@ -941,12 +941,12 @@ flowchart LR
     subgraph Validation
       normalize_input(Normalize input) --&gt; is_valid_data{Is valid&lt;br&gt;data ?}
       is_valid_data --&gt;|Yes| is_already_found{Is already&lt;br&gt;found ?}
-      is_already_found --&gt;|No| longer_data_exists{Does a data that&lt;br&gt;is not found exists with&lt;br&gt;the same base ?}
+      is_already_found --&gt;|Yes| longer_data_exists{Does a data that&lt;br&gt;is not found exists with&lt;br&gt;the same base ?}
     end
     is_valid_data --&gt;|No| no_match[No match]
-    is_already_found --&gt;|Yes| no_match[No match]
+    is_already_found --&gt;|No| match[Match]
     longer_data_exists --&gt;|No| no_match[No match]
-    longer_data_exists --&gt;|Yes| match[Match]</code></pre>
+    longer_data_exists --&gt;|Yes| continue[No match, but no error]</code></pre>
 <p>Details :</p>
 <ul>
 <li><code>Normalize input</code> means going from <code>Côte d'or</code> to <code>cote-d-or</code>. This normalization process is also applied to all the data that we compare to.</li>
