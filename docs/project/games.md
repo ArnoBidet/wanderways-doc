@@ -68,12 +68,12 @@ flowchart LR
     subgraph Validation
       normalize_input(Normalize input) --> is_valid_data{Is valid<br>data ?}
       is_valid_data -->|Yes| is_already_found{Is already<br>found ?}
-      is_already_found -->|No| longer_data_exists{Does a data that<br>is not found exists with<br>the same base ?}
+      is_already_found -->|Yes| longer_data_exists{Does a data that<br>is not found exists with<br>the same base ?}
     end
     is_valid_data -->|No| no_match[No match]
-    is_already_found -->|Yes| no_match[No match]
+    is_already_found -->|No| match[Match]
     longer_data_exists -->|No| no_match[No match]
-    longer_data_exists -->|Yes| match[Match]
+    longer_data_exists -->|Yes| continue[No match, but no error]
 ```
 
 Details :
