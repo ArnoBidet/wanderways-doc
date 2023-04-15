@@ -1,4 +1,8 @@
-#wanderways-access-button{
+@font-face {
+  font-family: "Lyons";
+  src: local("Lyons"),
+    url("/assets/fonts/Lyons.ttf") format("ttf");
+}
   background-origin: border-box;
   background-repeat: no-repeat;
   display:inline-block;
@@ -23,18 +27,26 @@ nav.home-section-container{
   flex-basis:7rem;
   justify-content:center;
 }
-nav.home-section-container a{
-  display:flex;
-  gap:0.5rem;
-  flex-direction:column;
-  align-items:center;
-  padding:1rem;
-  border-radius:0.5rem;
-  border:solid;
-  background:var(--md-primary-fg-color);
-  color:var(--md-primary-bg-color) !important;
-  cursor:pointer !important;
+
+section#quote{
+  margin:1rem auto;
+  max-width : 580px;
+}
+section#quote q{
+  font-family : "Lyons";
+  font-size:1.25rem;
+  display:block;
   text-align:center;
+}
+section#quote q::before, q::after{
+  font-size:2rem;
+  color:grey;
+  margin:0 0.5rem;
+}
+section#quote q::after{
+  vertical-align: text-top;
+}
+
 #motto-container,
 .motto {
   display: flex;

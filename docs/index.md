@@ -14,6 +14,20 @@ hide:
   </a>
 </div>
 
+<section id="quote">
+  Commandant Jacques-Yves Cousteau once said :
+  <q>
+    People protect what they love
+  </q>
+  But, we should add this follow-up :
+  <q>
+    People protect what they <i>love</i>, <i>love</i> what they <i>know</i>, <i>know</i> what they are taught
+  </q>
+  <span style="text-align:right;display:block;">
+    This is the <strong>very nature</strong> of this project.
+  </span>
+</section>
+
 <hr style="margin:2rem 0;">
 
 <h2 style="text-align:center;"> 🚀 Fast travel </h2>
