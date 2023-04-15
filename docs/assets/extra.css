@@ -35,6 +35,25 @@ nav.home-section-container a{
   color:var(--md-primary-bg-color) !important;
   cursor:pointer !important;
   text-align:center;
+#motto-container,
+.motto {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: strech;
+  justify-content: center;
+  gap: 1rem;
+}
+.motto {
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: 6rem;
+}
+.motto img {
+  max-height: 3rem;
+}
+.motto span {
+  text-align: center;
 }
 
 nav.home-section-container a img{
