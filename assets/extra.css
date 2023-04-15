@@ -1,45 +1,99 @@
-#wanderways-access-button{
+@font-face {
+  font-family: "Lyons";
+  src: local("Lyons"),
+    url("/assets/fonts/Lyons.ttf") format("ttf");
+}
+
+#wanderways-access-button {
   background-origin: border-box;
   background-repeat: no-repeat;
-  display:inline-block;
-  background-color:#000000;
-  padding:1rem;
-  border-radius:0.5rem;
-  background-image:linear-gradient(#000000aa, #00000000),
-  url('/assets/earth.png');
+  display: inline-block;
+  background-color: #000000;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(#000000aa, #00000000),
+    url("/assets/earth.png");
   background-position: top 0 left 50px;
-  background-size: 110%;
-  transition:  background-size ease-in-out .4s,background-position ease-in-out .4s;
+  background-size: cover;
+  -webkit-transition: all 0.55s ease-in-out;
+  transition: all 0.55s ease-in-out;
 }
-#wanderways-access-button:hover{
+#wanderways-access-button:hover {
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
+  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-nav.home-section-container{
-  display:flex;
-  gap:0.5rem;
-  flex-wrap:wrap;
-  flex-basis:7rem;
-  justify-content:center;
+#wanderways-access-button img {
+  object-fit: cover;
 }
-nav.home-section-container a{
-  display:flex;
-  gap:0.5rem;
-  flex-direction:column;
-  align-items:center;
-  padding:1rem;
-  border-radius:0.5rem;
-  border:solid;
-  background:var(--md-primary-fg-color);
-  color:var(--md-primary-bg-color) !important;
-  cursor:pointer !important;
+
+section#quote{
+  margin:1rem auto;
+  max-width : 580px;
+}
+section#quote q{
+  font-family : "Lyons";
+  font-size:1.25rem;
+  display:block;
   text-align:center;
 }
+section#quote q::before, q::after{
+  font-size:2rem;
+  color:grey;
+  margin:0 0.5rem;
+}
+section#quote q::after{
+  vertical-align: text-top;
+}
 
-nav.home-section-container a img{
-  max-width:5rem;
-  max-height:5rem;
+#motto-container,
+.motto {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: strech;
+  justify-content: center;
+  gap: 1rem;
+}
+.motto {
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: 6rem;
+}
+.motto img {
+  max-height: 3rem;
+}
+.motto span {
+  text-align: center;
+}
+
+nav.home-section-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  flex-basis: 7rem;
+  justify-content: center;
+}
+nav.home-section-container a {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: solid;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color) !important;
+  cursor: pointer !important;
+  text-align: center;
+}
+
+nav.home-section-container a img {
+  max-width: 5rem;
+  max-height: 5rem;
   filter: invert(1);
 }
 
@@ -47,9 +101,9 @@ p {
   text-align: justify;
 }
 
-.good{
-  color:green;
+.good {
+  color: green;
 }
-.bad{
-  color:red;
+.bad {
+  color: red;
 }
