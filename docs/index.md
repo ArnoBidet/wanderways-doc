@@ -89,11 +89,11 @@ When I learned the countries of the world, back in 2020, I did it on a small web
 - A map of the world (europe centered, Mercator projection)
 - A list of continents, with a sub-list of blank spaces that would fill up once the country was found.
 
-The game was simple, you had ~16 minutes to find all the countries of the world (UN restrictive list).
+The game was simple :
 
-You would tap as fast as you can the countries you know, and they would get colored on the map.
-
-The strategy was to retry as many times as necessary, learning bit by bit the countries of the world. 
+- You had ~16 minutes to find all the countries of the world (UN restrictive list).
+- You would tap as fast as you can the countries you know, and they would get colored on the map.
+- The strategy was to retry as many times as necessary, learning bit by bit the countries of the world. 
 
 Unfortunately, this website disappeared for unknown reasons.
 
@@ -101,9 +101,9 @@ One of the main benefits of this game was that in the mean time of learning them
 
 Also, at the end of the game, what you did not find would be colored in red, and a list showing average awareness for each country would be displayed. Thus, encouraging you to learn lesser known countries of the world.
 
-Indeed, africa, middle asia and oceania suffers from lack of aknowledgement by the population. Why would you care about countries you've never even heard of.
+Indeed, africa, middle asia and oceania <strong>suffers from lack of aknowledgement</strong> by the people. Why would you care about countries you've never even heard of.
 
-This is with this idea that I wanted to start a website that allows to learn maps in the same way. So that people would try their best to better understand the world around us. And it starts with acknowledging the existence of theses places.
+This is with this idea that I wanted to start a website that allows to learn maps in the same way. So that people would try their best to better understand the world around us. And <strong>it starts with acknowledging the existence of theses places</strong>.
 
 It's in an effort to allow people to learn in the same way that was fit to me that I started the Wanderways project.
 
