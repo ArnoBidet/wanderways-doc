@@ -47,9 +47,29 @@ hide:
 
 <hr style="margin:3rem 0;">
 
-## History - Raison d'être
+## Principles
 
-When I learned the countries of the world, back in 2020, I did it on a small website on which there was this game that was quite simple :
+This project was born following a few principles :
+
+<div id="motto-container">
+  <div class="motto">
+    <img src="/assets/free.png">
+    <span>Free to use</span>
+  </div>
+  <div class="motto">
+    <img src="/assets/open_source.png">
+    <span>Open source</span>
+  </div>
+  <div class="motto">
+    <img src="/assets/transparency.png">
+    <span>Transparency on<br>data collection</span>
+  </div>
+</div>
+
+
+## Project's origin story
+
+When I learned the countries of the world, back in 2020, I did it on a small website on which there was this game which was quite simple :
 
 - A text input.
 - A map of the world (europe centered, Mercator projection)
@@ -75,10 +95,3 @@ It's in an effort to allow people to learn in the same way that was fit to me th
 
 <p style="color:#88888888; text-align:right;">Arno BIDET</p>
 
-## Principles
-
-This project was born following a few principles :
-
-- Free to use
-- Open source
-- Transparency on data collection
