@@ -15,13 +15,13 @@ hide:
 </div>
 
 <section id="quote">
-  Commandant Jacques-Yves Cousteau once said :
+  Commandant <a href="https://en.wikipedia.org/wiki/Jacques_Cousteau">Jacques-Yves Cousteau</a> once said :
   <q>
     People protect what they love
   </q>
-  But, we should add this follow-up :
+  But, <a href="https://en.wikipedia.org/wiki/Baba_Dioum">Baba Dioum</a> has a better follow-up :
   <q>
-    People protect what they <i>love</i>, <i>love</i> what they <i>know</i>, <i>know</i> what they are taught
+    In the end, we will conserve only what we <i>love</i>; we will <i>love</i> only what we <i>understand</i> and we will <i>understand</i> only what we are taught.
   </q>
   <span style="text-align:right;display:block;">
     This is the <strong>very nature</strong> of this project.
