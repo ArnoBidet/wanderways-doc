@@ -4,7 +4,7 @@
 
 !!swagger game.yaml!!
 
-## Game scenarion - Sequence diagram
+## Game scenario - Sequence diagram
 
 ```mermaid
 sequenceDiagram
