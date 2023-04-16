@@ -60,7 +60,8 @@ div#team-container {
 }
 section.team-card {
   display: flex;
-  flex : 1 0 490px;
+  flex : 1 0 470px;
+  max-width:470px;
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
