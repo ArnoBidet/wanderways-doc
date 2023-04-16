@@ -49,6 +49,68 @@ section#quote q::after{
   vertical-align: text-top;
 }
 
+div#team-container {
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+section.team-card {
+  display: flex;
+  flex-grow:1;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  flex-basis: 16rem;
+  padding: 1rem;
+  flex-shrink: 1;
+  border-radius: 0.5rem;
+
+  -webkit-box-shadow: 0 8px 7px 0 rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+section.team-card header {
+  display: flex;
+  width: 100%;
+  gap: 0.25rem;
+}
+section.team-card header div {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+section.team-card header div a {
+  color: currentcolor;
+  font-size:1.05rem;
+  font-weight:600;
+}
+section.team-card header img {
+  max-width: 5rem;
+  max-height: 5rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.5rem;
+}
+section.team-card ul.role-list {
+  display: flex !important;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items:stretch;
+}
+section.team-card ul li {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin: 0 !important;
+  list-style-type: none;
+  background-color: #88888811;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  flex-grow: 1;
+  text-align: center;
+}
+
 #motto-container,
 .motto {
   display: flex;

@@ -109,3 +109,52 @@ It's in an effort to allow people to learn in the same way that was fit to me th
 
 <p style="color:#88888888; text-align:right;">Arno BIDET</p>
 
+<hr style="margin:3rem 0;">
+
+# Team
+
+<div id="team-container">
+  <section class="team-card">
+    <header>
+      <img src="https://media.licdn.com/dms/image/D4E03AQFmI7FUIFVSIQ/profile-displayphoto-shrink_800_800/0/1673811829365?e=1687392000&v=beta&t=-mhXQZLqR2W3mcLnJR0CUmdY_gwZqUgWoV7-Bk4DpCY">
+      <div>
+        <a href="https://www.linkedin.com/in/arno-bidet/">Arno BIDET</a>
+        <span>Developer</span>
+      </div>
+    </header>
+    <!-- <ul class="role-list">
+      <span style="align-self: center;">Roles :</span>
+      <li>Leader</li>
+      <li>Developer<br>back</li>
+      <li>Developer<br>front</li>
+      <li>Documentation<br>writer</li>
+    </ul> -->
+  </section>
+  <section class="team-card">
+    <header>
+      <img src="https://media.licdn.com/dms/image/D4E03AQHJ83eBXq6OzA/profile-displayphoto-shrink_800_800/0/1673749278972?e=1687392000&v=beta&t=pR4rNd1FND66Y1l32dYuYdTdYPM5meIC6DWV3yHrZLw">
+      <div>
+        <a href="https://www.linkedin.com/in/arthur-manneville/">Arthur MANNEVILLE</a>
+        <span>Developer</span>
+      </div>
+    </header>
+  </section>
+  <section class="team-card">
+    <header>
+      <img src="https://media.licdn.com/dms/image/D4D03AQH__UPYkyDpcw/profile-displayphoto-shrink_800_800/0/1663499629123?e=1687392000&v=beta&t=HtBkK7zTZv2CRmREGIXfHuaZq9RS7q2u7K6ydIXLnDc">
+      <div>
+        <a href="https://www.linkedin.com/in/chloe-bidet-cholet/">Chloé BIDET</a>
+        <span>Designer</span>
+      <div>
+    </header>
+  </section>
+  <section class="team-card">
+    <header>
+      <img src="https://media.licdn.com/dms/image/C5603AQFauuQtqjfeEQ/profile-displayphoto-shrink_800_800/0/1607545359744?e=1687392000&v=beta&t=3SkxOGNU5IxmAc2bkNcdIRrzvgEbr0EtSrdfeZbN21s">
+      <div>
+      <a href="https://www.linkedin.com/in/corentin-gouil-7968b6201/">Corentin GOUIL</a>
+        <span>Technical consultant</span>
+      <div>
+    </header>
+  </section>
+</div>

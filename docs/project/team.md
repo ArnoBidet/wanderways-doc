@@ -1,12 +1,3 @@
-# Our Team
-
-Arno BIDET
-
-Arthur MANNEVILLE
-
-Chloé BIDET
-
-Corentin GOUIL
 
 
 ## Members interests
