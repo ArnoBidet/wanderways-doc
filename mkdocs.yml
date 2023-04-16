@@ -33,7 +33,6 @@ nav:
     - "project/index.md"
     - "project/roadmap.md"
     - "project/games.md"
-    - "project/team.md"
   - Backend:
     - "backend/index.md"
     - Api:
