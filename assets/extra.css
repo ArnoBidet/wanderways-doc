@@ -56,14 +56,14 @@ div#team-container {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+  margin: 0 auto;
 }
 section.team-card {
   display: flex;
-  flex-grow:1;
+  flex : 1 0 490px;
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
-  flex-basis: 16rem;
   padding: 1rem;
   flex-shrink: 1;
   border-radius: 0.5rem;
