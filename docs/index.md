@@ -19,7 +19,7 @@ hide:
   <q>
     People protect what they love
   </q>
-  But, <a href="https://en.wikipedia.org/wiki/Baba_Dioum">Baba Dioum</a> has a better follow-up :
+  And <a href="https://en.wikipedia.org/wiki/Baba_Dioum">Baba Dioum</a> has a good follow-up :
   <q>
     In the end, we will conserve only what we <i>love</i>; we will <i>love</i> only what we <i>understand</i> and we will <i>understand</i> only what we are taught.
   </q>
