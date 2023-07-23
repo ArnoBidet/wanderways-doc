@@ -4,6 +4,8 @@
 !!swagger map.yaml!!
 
 
+**If you don't see an OpenApi like display upon this message, this means an error occured, please reload page to see it.**
+
 ## Typescript schema
 
 ```ts
