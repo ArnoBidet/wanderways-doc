@@ -1,3 +1,6 @@
+servers:
+  - url: https://api.wanderways.io
+    description: Development purpose
 openapi: 3.0.0
 tags:
   - name: map
