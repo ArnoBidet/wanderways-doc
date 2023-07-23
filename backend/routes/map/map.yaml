@@ -1,13 +1,62 @@
+# servers:
+#   - url: http://127.0.0.1:8002
+#     description: Development purpose
 openapi: 3.0.0
 tags:
   - name: map
 paths:
-  /api/map/list/:
+  /map/list:
     get:
       summary: Get all the maps.
       description : Get the list of maps along with their description, thumbnails, tags, wiki link and statistiques such as popularity.
       tags:
         - map
+      parameters:
+        - in: header
+          name: language
+          schema:
+            type: string
+            enum: ["fr-FR", "en-US", "de-DE", "es-ES", "pt-PT"]
+            default: "en-US"
+          description: The numbers of items to return
+        - in: query
+          name: limit
+          schema:
+            type: integer
+          description: The numbers of items to return
+        - in: query
+          name: offset
+          schema:
+            type: integer
+          description: The number of items to skip before starting to collect the result set (allows pagination systems)
+        - in: query
+          name: order_by
+          schema:
+            type: string
+            enum: ["id", "label", "play_count"]
+          description: On what column to order the result
+        - in: query
+          name: direction
+          schema:
+            default: ASC
+            enum: ["ASC","DESC"]
+            type: string
+          description: Order of result (default normal, desc means reverse). Needs parameter "order_by" to work.
+        - in: query
+          name: with_tags
+          schema:
+            type: array
+            items: 
+              type: string
+          explode: true
+          description: Filters the maps that matches all the given tags
+          examples:
+            oneId:
+              summary: Example of a tag
+              value: ["TAG_JAPAN"]
+            multipleIds:
+              summary: Example of multiple tags
+              value: ["TAG_JAPAN", "TAG_CITIES"]
       responses:
         "200":
           description: OK. More details on the page below.
