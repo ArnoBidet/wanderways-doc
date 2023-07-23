@@ -1,6 +1,6 @@
-# servers:
-#   - url: http://127.0.0.1:8002
-#     description: Development purpose
+servers:
+  - url: https://api.wanderways.io
+    description: Development purpose
 openapi: 3.0.0
 tags:
   - name: map
